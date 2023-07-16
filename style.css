@@ -11,6 +11,14 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+header h1 {
+  text-align: center;
+}
+
 .center {
   padding-left: calc(50% - 570px);
   padding-right: calc(50% - 570px);
@@ -19,21 +27,88 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
-.form__dims {
+
+.general-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.general-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.general-info__attr {
+  padding: 3px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.dims {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.form__categories {
+.dims__box {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
+.dims__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.dims__item h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5D5D5D;
+}
+.dims__item input {
+  width: 80px;
+  padding: 3px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.dims__size {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  color: black;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.categories__item {
+  width: 200px;
+  padding: 3px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
 
 .error-text {
   color: red;
+}
+
+.button {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+.button:hover {
+  color: white;
+  background-color: #5D5D5D;
+  cursor: pointer;
 }
 
 .reference {
@@ -42,6 +117,13 @@ body {
   font-size: 14px;
   line-height: 17px;
   color: #5D5D5D;
+}
+
+.final-cost {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 @media (min-width: 767px) and (max-width: 1024px) {

@@ -10,40 +10,67 @@
 </head>
 <body>
 
-<header>
-
+<header class="center">
+<h1>Расчет стоимости товара на WB</h1>
 </header>
 
 <form class="form center">
 
-    <label for="prime-cost">
-        Себестоимость
-        <input id="prime-cost" type="text">
-    </label>
+    <section class="general-info">
+        <div class="general-info__item">
+            <h3>Наименование товара</h3>
+            <label for="name">
+                <input id="name" type="text" class="general-info__attr">
+            </label>
+        </div>
 
-    <label for="sold">
-        За сколько продаю
-        <input id="sold" type="text">
-    </label>
 
-    <div class="form__dims">
+        <div class="general-info__item necessary">
+            <h3>Себестоимость</h3>
+            <label for="prime-cost">
+                <input id="prime-cost" type="number" class="general-info__attr"> <span>руб</span>
+            </label>
+        </div>
+
+
+        <div class="general-info__item necessary">
+            <h3>Цена продажи</h3>
+            <label for="sold">
+                <input id="sold" type="number" class="general-info__attr"> <span>руб</span>
+            </label>
+        </div>
+    </section>
+
+
+    <div class="dims">
         <h2>Габариты</h2>
-        <label for="height">Высота
-            <input id="height" type="text">
-        </label>
-        <label for="width">Ширина
-            <input id="width" type="text">
-        </label>
-        <label for="length">Длина
-            <input id="length" type="text">
-        </label>
-        <h3 class="size"></h3>
+        <div class="dims__box">
+            <div class="dims__item necessary">
+                <h3>Высота</h3>
+                <label for="height">
+                    <input id="height" type="number">
+                </label>
+            </div>
+            <div class="dims__item necessary">
+                <h3>Ширина</h3>
+                <label for="width">
+                    <input id="width" type="number">
+                </label>
+            </div>
+            <div class="dims__item necessary">
+                <h3>Длина</h3>
+                <label for="length">
+                    <input id="length" type="number">
+                </label>
+            </div>
+        </div>
+        <h3 class="dims__size">Общий объем:</h3>
     </div>
 
-    <div class="form__categories">
-        <h2>Категория</h2>
+    <div class="categories necessary">
+        <h3>Категория</h3>
         <label for="category">
-            <select id="category">
+            <select id="category" class="categories__item">
                 <option value="">Выбрать</option>
                 <option value="toys">Игрушки</option>
                 <option value="clothes">Одежда</option>
@@ -52,6 +79,11 @@
         <p>Комиссия: <span class="charge"></span></p>
     </div>
 
+    <p class="error-text"></p>
+    <button class="button" type="button">Рассчитать</button>
+</form>
+
+<section class="final-cost center">
     <div class="last-mile">
         <h3>Поседняя миля: <span class="last-mile-final"></span></h3>
         <p class="reference">5.5% (но не менее 20 рублей) от выставялемой цены</p>
@@ -79,10 +111,7 @@
     <div class='min-available'>
         <p>Минимальная допустимая стоимость (маржа - 0%): <span class="min-available-cost"></span></p>
     </div>
-
-    <p class="error-text"></p>
-    <button class="button" type="button">Рассчитать</button>
-</form>
+</section>
 
 <footer>
 
