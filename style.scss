@@ -1,0 +1,52 @@
+@import "vars";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.center {
+  padding-left: calc(50% - $widthSite / 2);
+  padding-right: calc(50% - $widthSite / 2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__dims {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.error-text {
+  color: red;
+}
+
+.reference {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5D5D5D;
+}
+
+@import "mediaTab";
+@import "mediaMob";

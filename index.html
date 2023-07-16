@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+</header>
+
+<form class="form center">
+
+    <label for="prime-cost">
+        Себестоимость
+        <input id="prime-cost" type="text">
+    </label>
+
+    <label for="sold">
+        За сколько продаю
+        <input id="sold" type="text">
+    </label>
+
+    <div class="form__dims">
+        <h2>Габариты</h2>
+        <label for="height">Высота
+            <input id="height" type="text">
+        </label>
+        <label for="width">Ширина
+            <input id="width" type="text">
+        </label>
+        <label for="length">Длина
+            <input id="length" type="text">
+        </label>
+        <h3 class="size"></h3>
+    </div>
+
+    <div class="form__categories">
+        <h2>Категория</h2>
+        <label for="category">
+            <select id="category">
+                <option value="">Выбрать</option>
+                <option value="toys">Игрушки</option>
+                <option value="clothes">Одежда</option>
+            </select>
+        </label>
+        <p>Комиссия: <span class="charge"></span></p>
+    </div>
+
+    <div class="last-mile">
+        <h3>Поседняя миля: <span class="last-mile-final"></span></h3>
+        <p class="reference">5.5% (но не менее 20 рублей) от выставялемой цены</p>
+    </div>
+
+    <div class="IE">
+        <h3>Налог от ИП: <span class="IE-final"></span></h3>
+        <p class="reference">6% от выставялемой цены</p>
+    </div>
+
+    <div class="acquiring">
+        <h3>Эквайринг: <span class="acquiring-final"></span></h3>
+        <p class="reference">1.5% от выставялемой цены</p>
+    </div>
+
+    <div class="income">
+        <h3>Маржа: <span class="income-final"></span></h3>
+        <p></p>
+    </div>
+
+    <div class="min">
+        <p>Минимальная стоимость (маржа - 10%): <span class="min-cost"></span></p>
+    </div>
+
+    <div class='min-available'>
+        <p>Минимальная допустимая стоимость (маржа - 0%): <span class="min-available-cost"></span></p>
+    </div>
+
+    <p class="error-text"></p>
+    <button class="button" type="button">Рассчитать</button>
+</form>
+
+<footer>
+
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

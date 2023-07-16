@@ -1,0 +1,6 @@
+@media (min-width: 320px) and (max-width: 766px) {
+  .center {
+    padding-left: calc(50% - $widthMob / 2);
+    padding-right: calc(50% - $widthMob / 2);
+  }
+}

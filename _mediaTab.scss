@@ -1,0 +1,6 @@
+@media (min-width: 767px) and (max-width: 1024px) {
+  .center {
+    padding-left: calc(50% - $widthTable / 2);
+    padding-right: calc(50% - $widthTable / 2);
+  }
+}
