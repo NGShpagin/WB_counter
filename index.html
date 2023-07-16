@@ -14,104 +14,102 @@
 <h1>Расчет стоимости товара на WB</h1>
 </header>
 
-<form class="form center">
+<div class="content center">
+    <form class="form">
+        <section class="general-info">
+            <div class="general-info__item">
+                <h3>Наименование товара</h3>
+                <label for="name">
+                    <input id="name" type="text" class="general-info__attr">
+                </label>
+            </div>
 
-    <section class="general-info">
-        <div class="general-info__item">
-            <h3>Наименование товара</h3>
-            <label for="name">
-                <input id="name" type="text" class="general-info__attr">
+            <div class="general-info__item necessary">
+                <h3>Себестоимость</h3>
+                <label for="prime-cost">
+                    <input id="prime-cost" type="number" class="general-info__attr"> <span>руб</span>
+                </label>
+            </div>
+
+            <div class="general-info__item necessary">
+                <h3>Цена продажи</h3>
+                <label for="sold">
+                    <input id="sold" type="number" class="general-info__attr"> <span>руб</span>
+                </label>
+            </div>
+        </section>
+
+        <section class="dims">
+            <h2>Габариты</h2>
+            <div class="dims__box">
+                <div class="dims__item necessary">
+                    <h3>Высота</h3>
+                    <label for="height">
+                        <input id="height" type="number">
+                    </label>
+                </div>
+                <div class="dims__item necessary">
+                    <h3>Ширина</h3>
+                    <label for="width">
+                        <input id="width" type="number">
+                    </label>
+                </div>
+                <div class="dims__item necessary">
+                    <h3>Длина</h3>
+                    <label for="length">
+                        <input id="length" type="number">
+                    </label>
+                </div>
+            </div>
+            <h3 class="dims__size">Общий объем:</h3>
+        </section>
+
+        <div class="categories necessary">
+            <h3>Категория</h3>
+            <label for="category">
+                <select id="category" class="categories__item">
+                    <option value="">Выбрать</option>
+                    <option value="toys">Игрушки</option>
+                    <option value="clothes">Одежда</option>
+                </select>
             </label>
+            <p>Комиссия: <span class="charge"></span></p>
         </div>
 
+        <p class="error-text"></p>
+        <button class="button" type="button">Рассчитать</button>
+    </form>
 
-        <div class="general-info__item necessary">
-            <h3>Себестоимость</h3>
-            <label for="prime-cost">
-                <input id="prime-cost" type="number" class="general-info__attr"> <span>руб</span>
-            </label>
+    <section class="final-cost">
+        <div class="last-mile">
+            <h3>Поседняя миля: <span class="last-mile-final"></span></h3>
+            <p class="reference">5.5% (но не менее 20 рублей) от выставялемой цены</p>
         </div>
 
+        <div class="IE">
+            <h3>Налог от ИП: <span class="IE-final"></span></h3>
+            <p class="reference">6% от выставялемой цены</p>
+        </div>
 
-        <div class="general-info__item necessary">
-            <h3>Цена продажи</h3>
-            <label for="sold">
-                <input id="sold" type="number" class="general-info__attr"> <span>руб</span>
-            </label>
+        <div class="acquiring">
+            <h3>Эквайринг: <span class="acquiring-final"></span></h3>
+            <p class="reference">1.5% от выставялемой цены</p>
+        </div>
+
+        <div class="income">
+            <h3>Маржа: <span class="income-final"></span></h3>
+            <p></p>
+        </div>
+
+        <div class="min">
+            <p>Минимальная стоимость (маржа - 10%): <span class="min-cost"></span></p>
+        </div>
+
+        <div class='min-available'>
+            <p>Минимальная допустимая стоимость (маржа - 0%): <span class="min-available-cost"></span></p>
         </div>
     </section>
-
-
-    <div class="dims">
-        <h2>Габариты</h2>
-        <div class="dims__box">
-            <div class="dims__item necessary">
-                <h3>Высота</h3>
-                <label for="height">
-                    <input id="height" type="number">
-                </label>
-            </div>
-            <div class="dims__item necessary">
-                <h3>Ширина</h3>
-                <label for="width">
-                    <input id="width" type="number">
-                </label>
-            </div>
-            <div class="dims__item necessary">
-                <h3>Длина</h3>
-                <label for="length">
-                    <input id="length" type="number">
-                </label>
-            </div>
-        </div>
-        <h3 class="dims__size">Общий объем:</h3>
-    </div>
-
-    <div class="categories necessary">
-        <h3>Категория</h3>
-        <label for="category">
-            <select id="category" class="categories__item">
-                <option value="">Выбрать</option>
-                <option value="toys">Игрушки</option>
-                <option value="clothes">Одежда</option>
-            </select>
-        </label>
-        <p>Комиссия: <span class="charge"></span></p>
-    </div>
-
-    <p class="error-text"></p>
-    <button class="button" type="button">Рассчитать</button>
-</form>
-
-<section class="final-cost center">
-    <div class="last-mile">
-        <h3>Поседняя миля: <span class="last-mile-final"></span></h3>
-        <p class="reference">5.5% (но не менее 20 рублей) от выставялемой цены</p>
-    </div>
-
-    <div class="IE">
-        <h3>Налог от ИП: <span class="IE-final"></span></h3>
-        <p class="reference">6% от выставялемой цены</p>
-    </div>
-
-    <div class="acquiring">
-        <h3>Эквайринг: <span class="acquiring-final"></span></h3>
-        <p class="reference">1.5% от выставялемой цены</p>
-    </div>
-
-    <div class="income">
-        <h3>Маржа: <span class="income-final"></span></h3>
-        <p></p>
-    </div>
-
-    <div class="min">
-        <p>Минимальная стоимость (маржа - 10%): <span class="min-cost"></span></p>
-    </div>
-
-    <div class='min-available'>
-        <p>Минимальная допустимая стоимость (маржа - 0%): <span class="min-available-cost"></span></p>
-    </div>
-</section>
+</div>
 
 <footer>
 
