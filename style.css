@@ -21,8 +21,8 @@ header h1 {
 }
 
 .center {
-  padding-left: calc(50% - 570px);
-  padding-right: calc(50% - 570px);
+  padding-left: calc(50% - 450px);
+  padding-right: calc(50% - 450px);
 }
 
 .content {
@@ -44,6 +44,7 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 400px;
 }
 .general-info__item {
   display: flex;
@@ -54,6 +55,7 @@ header h1 {
   padding: 3px;
   border: 1px solid #000;
   border-radius: 5px;
+  width: 300px;
 }
 
 .dims {
@@ -64,7 +66,7 @@ header h1 {
 .dims__box {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  justify-content: space-between;
 }
 .dims__item {
   display: flex;
@@ -87,7 +89,7 @@ header h1 {
 .dims__size {
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 17px;
   color: black;
 }
@@ -98,10 +100,17 @@ header h1 {
   gap: 10px;
 }
 .categories__item {
-  width: 200px;
+  width: 308px;
   padding: 3px;
   border: 1px solid #000;
   border-radius: 5px;
+}
+.categories p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 17px;
+  color: black;
 }
 
 .error-text {
@@ -109,7 +118,7 @@ header h1 {
 }
 
 .button {
-  width: 200px;
+  width: 308px;
   padding: 10px;
   border: 1px solid #000;
   border-radius: 5px;
@@ -135,6 +144,24 @@ header h1 {
   gap: 10px;
   padding-left: 5px;
   padding-right: 5px;
+}
+.final-cost__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.final-cost__item p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5D5D5D;
+}
+
+.last-mile {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 @media (min-width: 767px) and (max-width: 1024px) {

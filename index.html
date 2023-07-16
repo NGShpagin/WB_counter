@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>WbForShpagins</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,16 +25,16 @@
             </div>
 
             <div class="general-info__item necessary">
-                <h3>Себестоимость</h3>
+                <h3>Себестоимость, руб</h3>
                 <label for="prime-cost">
-                    <input id="prime-cost" type="number" class="general-info__attr"> <span>руб</span>
+                    <input id="prime-cost" type="number" min="0" class="general-info__attr">
                 </label>
             </div>
 
             <div class="general-info__item necessary">
-                <h3>Цена продажи</h3>
+                <h3>Цена продажи, руб</h3>
                 <label for="sold">
-                    <input id="sold" type="number" class="general-info__attr"> <span>руб</span>
+                    <input id="sold" type="number" min="0" class="general-info__attr">
                 </label>
             </div>
         </section>
@@ -81,24 +81,25 @@
     </form>
 
     <section class="final-cost">
-        <div class="last-mile">
-            <h3>Поседняя миля: <span class="last-mile-final"></span></h3>
+        <div class="last-mile final-cost__item">
+            <h3>Поседняя миля, руб: <span class="last-mile-final"></span></h3>
             <p class="reference">5.5% (но не менее 20 рублей) от выставялемой цены</p>
         </div>
 
-        <div class="IE">
-            <h3>Налог от ИП: <span class="IE-final"></span></h3>
+        <div class="IE final-cost__item">
+            <h3>Налог от ИП, руб: <span class="IE-final"></span></h3>
             <p class="reference">6% от выставялемой цены</p>
         </div>
 
-        <div class="acquiring">
-            <h3>Эквайринг: <span class="acquiring-final"></span></h3>
+        <div class="acquiring final-cost__item">
+            <h3>Эквайринг, руб: <span class="acquiring-final"></span></h3>
             <p class="reference">1.5% от выставялемой цены</p>
         </div>
 
-        <div class="income">
+        <div class="income final-cost__item">
             <h3>Маржа: <span class="income-final"></span></h3>
-            <p></p>
+            <p>% от цены продажи: <span class="income-final-sold"></span></p>
+            <p>% от цены покупки: <span class="income-final-buy"></span></p>
         </div>
 
         <div class="min">

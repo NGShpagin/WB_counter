@@ -47,6 +47,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 400px;
 
   &__item {
     display: flex;
@@ -58,6 +59,7 @@ header {
     padding: 3px;
     border: 1px solid #000;
     border-radius: 5px;
+    width: 300px;
   }
 }
 
@@ -69,7 +71,7 @@ header {
   &__box {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    justify-content: space-between;
   }
 
   &__item {
@@ -96,7 +98,7 @@ header {
   &__size {
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 17px;
     color: black;
   }
@@ -108,10 +110,18 @@ header {
   gap: 10px;
 
   &__item {
-    width: 200px;
+    width: 308px;
     padding: 3px;
     border: 1px solid #000;
     border-radius: 5px;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+    color: black;
   }
 }
 
@@ -120,7 +130,7 @@ header {
 }
 
 .button {
-  width: 200px;
+  width: 308px;
   padding: 10px;
   border: 1px solid #000;
   border-radius: 5px;
@@ -148,6 +158,26 @@ header {
   gap: 10px;
   padding-left: 5px;
   padding-right: 5px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #5D5D5D;
+    }
+  }
+}
+
+.last-mile {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 @import "mediaTab";

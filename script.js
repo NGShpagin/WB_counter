@@ -14,6 +14,8 @@ const incomeFinalEl = document.querySelector('.income-final');
 const minPrice = document.querySelector('.min-cost')
 const minAvailablePrice = document.querySelector('.min-available-cost')
 const necessaryEls = document.querySelectorAll('.necessary');
+const percentSold = document.querySelector('.income-final-sold');
+const percentBuy = document.querySelector('.income-final-buy');
 
 necessaryEls.forEach((el) => {
     el.querySelector('h3').innerHTML += '<span style="color: red"> *</span>';
@@ -75,13 +77,13 @@ btnEl.addEventListener('click', (e) => {
         const minAvailablePriceNum = Number(primeCost.value) + Number(ieNum)
             + Number(acquiringNum) + Number(lastMileEl.textContent)
 
+        incomeFinalEl.textContent = finalIncomeNum.toFixed(2) + ' руб';
+        percentSold.textContent = (Number(finalIncomeNum) / Number(finalPriceEl.value) * 100).toFixed(1) + ' %';
+        percentBuy.textContent = (Number(finalIncomeNum) / Number(primeCost.value) * 100).toFixed(1) + ' %';
 
-        incomeFinalEl.textContent = String(finalIncomeNum) + ' руб'
-            + ` ( ${(Number(finalIncomeNum) / Number(primeCost.value) * 100).toFixed(1)} % )`;
+        minPrice.textContent = String(minPriceNum) + ` (Маржа: ${(Number(primeCost.value) * 0.1)} руб)`
 
-        minPrice.textContent = String(minPriceNum) + ' руб' + ` (Маржа: ${(Number(primeCost.value) * 0.1)} руб)`
-
-        minAvailablePrice.textContent = String(minAvailablePriceNum) + ' руб'
+        minAvailablePrice.textContent = String(minAvailablePriceNum)
     }
 
     sizeEl.textContent = `Общий объем: ${sizeFunc()}`;
