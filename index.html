@@ -1,120 +1,380 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto&display=swap"
+          rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WbForShpagins</title>
+    <title>OzonForShpagins</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<p class="error-text"></p>
+
 <header class="center">
-<h1>Расчет стоимости товара на WB</h1>
+    <h1>Расчет стоимости товара на OZON</h1>
 </header>
+
+<nav class="navigation-bar center">
+    <button class="nav-button nav-button__activated item-btn">Расчет товара</button>
+    <button class="nav-button consignment-btn" disabled>Расчет отгрузки</button>
+</nav>
 
 <div class="content center">
     <form class="form">
-        <section class="general-info">
-            <div class="general-info__item">
-                <h3>Наименование товара</h3>
-                <label for="name">
-                    <input id="name" type="text" class="general-info__attr">
-                </label>
-            </div>
-
-            <div class="general-info__item necessary">
-                <h3>Себестоимость, руб</h3>
-                <label for="prime-cost">
-                    <input id="prime-cost" type="number" min="0" class="general-info__attr">
-                </label>
-            </div>
-
-            <div class="general-info__item necessary">
-                <h3>Цена продажи, руб</h3>
-                <label for="sold">
-                    <input id="sold" type="number" min="0" class="general-info__attr">
-                </label>
-            </div>
-        </section>
-
-        <section class="dims">
-            <h2>Габариты</h2>
-            <div class="dims__box">
-                <div class="dims__item necessary">
-                    <h3>Высота</h3>
-                    <label for="height">
-                        <input id="height" type="number">
+        <div class="form-fields">
+            <section class="general-info">
+                <div class="general-info__item">
+                    <h3 class="item-name">Наименование товара</h3>
+                    <label for="name">
+                        <input id="name" type="text" class="general-info__attr cross">
+                        <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
                     </label>
                 </div>
-                <div class="dims__item necessary">
-                    <h3>Ширина</h3>
-                    <label for="width">
-                        <input id="width" type="number">
-                    </label>
+                <div class="general-info__cost-values">
+                    <div class="general-info__item item-cost necessary">
+                        <h3>Себестоимость, руб</h3>
+                        <label for="prime-cost">
+                            <input id="prime-cost" type="number" min="0" class="general-info__attr cross"
+                                   required="required">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="general-info__item item-cost necessary">
+                        <h3>Цена продажи, руб</h3>
+                        <label for="sold">
+                            <input id="sold" type="number" min="0" class="general-info__attr cross" required="required">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
                 </div>
-                <div class="dims__item necessary">
-                    <h3>Длина</h3>
-                    <label for="length">
-                        <input id="length" type="number">
-                    </label>
-                </div>
-            </div>
-            <h3 class="dims__size">Общий объем:</h3>
-        </section>
+            </section>
 
-        <div class="categories necessary">
-            <h3>Категория</h3>
-            <label for="category">
-                <select id="category" class="categories__item">
-                    <option value="">Выбрать</option>
-                    <option value="toys">Игрушки</option>
-                    <option value="clothes">Одежда</option>
-                </select>
-            </label>
-            <p>Комиссия: <span class="charge"></span></p>
+            <section class="dims">
+                <h2>Габариты</h2>
+                <div class="dims__box">
+                    <div class="dims__item necessary">
+                        <h3>Высота, см</h3>
+                        <label for="height">
+                            <input id="height" type="number" min="0" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="dims__item necessary">
+                        <h3>Ширина, см</h3>
+                        <label for="width">
+                            <input id="width" type="number" min="0" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="dims__item necessary">
+                        <h3>Длина, см</h3>
+                        <label for="length">
+                            <input id="length" type="number" min="0" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="dims__item necessary">
+                        <h3>Вес, кг</h3>
+                        <label for="weight">
+                            <input id="weight" type="number" min="0" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+                <h3 class="dims__size">Объемный вес товара: <span class="value-weight"></span></h3>
+                <h3 class="dims__size">Объем товара: <span class="size-value"></span></h3>
+                <p>Логистика: <span class="dims__charge"></span></p>
+            </section>
+
+            <section class="categories necessary">
+                <h3>Категория</h3>
+                <label for="category">
+                    <select id="category" class="categories__select">
+                        <option value="">Выбрать</option>
+                        <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </select>
+                </label>
+                <p>Комиссия: <span class="category-charge"></span> <b>(<span class="chargeRub"></span>)</b></p>
+            </section>
+
+            <section class="fulfillment">
+                <div class="fulfillment__heading-box">
+                    <h2>Услуги фулфилмента</h2>
+                    <label for="fulfillment-checked">
+                        <input type="checkbox" role="switch" id="fulfillment-checked">
+                        <span class="fulfillment-label"></span>
+                        <span class="circle"></span>
+                    </label>
+                </div>
+                <div class="fulfillment__box">
+                    <div class="fulfillment__item">
+                        <h3>Упаковка, руб
+                            <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                      stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                            </svg>
+                        </h3>
+                        <label for="package">
+                            <input id="package" type="number" min="0" value="15" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                        <p class="reference">Стоимость приемки товара + маркировки + упаковки в скотч / рукав /
+                            пакет</p>
+                    </div>
+
+                    <div class="fulfillment__item">
+                        <h3>Отгрузка, руб
+                            <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                      stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                            </svg>
+                        </h3>
+                        <label for="shipment">
+                            <input id="shipment" type="number" min="0" value="5" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                        <p class="reference">Стоимость отгрузки 1 единицы до склада OZON (из расчета 300 единиц в
+                            отгрузке)</p>
+                    </div>
+
+                    <div class="fulfillment__item">
+                        <h3>Брак, руб
+                            <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                      stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                            </svg>
+                        </h3>
+                        <label for="defect">
+                            <input id="defect" type="number" min="0" value="10" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                        <p class="reference">Стоимость проверки 1 единицы товара на брак</p>
+                    </div>
+
+                    <div class="fulfillment__item">
+                        <h3>Доп. расходы, руб</h3>
+                        <label for="additional">
+                            <input id="additional" type="number" min="0" class="cross">
+                            <svg class="clear-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L16 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 8L8 16" stroke="black" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <p class="error-text"></p>
-        <button class="button" type="button">Рассчитать</button>
+        <div class="buttons">
+            <button class="buttons__count" type="button">Рассчитать</button>
+            <button class="buttons__clear" type="reset">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 3.11 16.44 3.11 16.44M3.11 16.44H7.63M3.11 16.44V21.44M2 12C2 6.48 6.44 2 12 2C18.67 2 22 7.56 22 7.56M22 7.56V2.56M22 7.56H17.56"
+                          stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Сбросить</span>
+            </button>
+        </div>
     </form>
 
     <section class="final-cost">
-        <div class="last-mile final-cost__item">
-            <h3>Поседняя миля, руб: <span class="last-mile-final"></span></h3>
-            <p class="reference">5.5% (но не менее 20 рублей) от выставялемой цены</p>
+
+        <div class="final-cost__charges">
+            <h2 class="final-cost__charges-heading">Расходы (комиссия)</h2>
+            <div class="final-cost__charges__item">
+                <h3 class="final-cost__charges__heading">Последняя миля
+                    <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                              stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                    </svg>
+                </h3>
+                <p class="last-mile-final default-field"></p>
+                <p class="reference">5.5%, но не менее 20 руб от цены продажи</p>
+            </div>
+
+            <div class="final-cost__charges__item">
+                <h3 class="final-cost__charges__heading">Налог от ИП
+                    <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                              stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                    </svg>
+                </h3>
+                <p class="IE-final default-field"></p>
+                <p class="reference">6% от цены продажи</p>
+            </div>
+
+            <div class="final-cost__charges__item">
+                <h3 class="final-cost__charges__heading">Эквайринг
+                    <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                              stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                    </svg>
+                </h3>
+                <p class="acquiring-final default-field"></p>
+                <p class="reference">1.5% от выставялемой цены</p>
+            </div>
+
+            <div class="final-cost__charges__item">
+                <h3 class="final-cost__charges__heading">Логистика
+                    <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                              stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                    </svg>
+                </h3>
+                <p class="dims__charge default-field"></p>
+                <p class="reference">Зависит от габаритов товара</p>
+            </div>
+
+            <div class="final-cost__charges__item">
+                <h3 class="final-cost__charges__heading">Категория
+                    <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                              stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                    </svg>
+                </h3>
+                <p class="chargeRub default-field"></p>
+                <p class="reference">Зависит от выбранной категории</p>
+            </div>
+
+            <div class="final-cost__charges__item fina-cost-charges">
+                <h3 class="final-cost__charges__heading">Фулфилмент
+                    <svg class="help-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10C9 9.40666 9.17595 8.82664 9.50559 8.33329C9.83524 7.83994 10.3038 7.45543 10.852 7.22836C11.4001 7.0013 12.0033 6.94189 12.5853 7.05765C13.1672 7.1734 13.7018 7.45912 14.1213 7.87868C14.5409 8.29824 14.8266 8.83279 14.9424 9.41473C15.0581 9.99667 14.9987 10.5999 14.7716 11.1481C14.5446 11.6962 14.1601 12.1648 13.6667 12.4944C13.1734 12.8241 12.5933 13 12 13V14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                              stroke="#5D5D5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#5D5D5D"/>
+                    </svg>
+                </h3>
+                <p class="addCharges default-field"></p>
+                <p class="reference">Расходы на услуги фулфилмента</p>
+            </div>
+
+            <div class="final-cost__charges__item" style="grid-template-rows: repeat(1, 1fr)">
+                <h3>Итого: <span class="final-cost__charges-value"></span></h3>
+            </div>
         </div>
 
-        <div class="IE final-cost__item">
-            <h3>Налог от ИП, руб: <span class="IE-final"></span></h3>
-            <p class="reference">6% от выставялемой цены</p>
+        <div class="final-cost__income">
+            <div class="income final-cost__income__item">
+                <h3 class="income-final-heading">Маржа: <span class="income-final"></span></h3>
+                <p>% от цены продажи: <span class="income-final-sold"></span></p>
+                <p>% от себестоимости: <span class="income-final-buy"></span></p>
+            </div>
+
+            <div class="min final-cost__income__item">
+                <h3 class="final-cost__income__heading">Минимальная рекомендуемая стоимость</h3>
+                <p class="min-cost default-field"></p>
+                <p>Маржа: <span class="min-income"></span></p>
+                <p>% от цены продажи: 10%</p>
+                <p>% от себестоимости: <span class="min-final-buy"></span></p>
+            </div>
+
+            <div class='min-available final-cost__income__item'>
+                <h3 class="final-cost__income__heading">Минимальная допустимая стоимость</h3>
+                <p class="min-available-cost default-field"></p>
+                <p>Маржа: 0</p>
+            </div>
         </div>
 
-        <div class="acquiring final-cost__item">
-            <h3>Эквайринг, руб: <span class="acquiring-final"></span></h3>
-            <p class="reference">1.5% от выставялемой цены</p>
-        </div>
+        <button class="button-save" type="button" disabled>Сохранить рассчет</button>
 
-        <div class="income final-cost__item">
-            <h3>Маржа: <span class="income-final"></span></h3>
-            <p>% от цены продажи: <span class="income-final-sold"></span></p>
-            <p>% от цены покупки: <span class="income-final-buy"></span></p>
-        </div>
-
-        <div class="min">
-            <p>Минимальная стоимость (маржа - 10%): <span class="min-cost"></span></p>
-        </div>
-
-        <div class='min-available'>
-            <p>Минимальная допустимая стоимость (маржа - 0%): <span class="min-available-cost"></span></p>
-        </div>
     </section>
 </div>
 
 <footer>
 
 </footer>
-<script src="script.js"></script>
+
+<script type="module" src="script.js"></script>
+
 </body>
 </html>

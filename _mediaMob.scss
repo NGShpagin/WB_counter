@@ -5,7 +5,36 @@
   }
 
   .content {
+    display: flex;
     flex-direction: column;
     gap: 30px;
+    padding-bottom: 20px;
+  }
+
+  .nav-button {
+    width: 45%;
+  }
+
+  .form {
+    margin-bottom: 30px;
+  }
+
+  .buttons {
+
+    &__count {
+      width: 75%;
+    }
+
+    &__clear {
+      width: 20%;
+
+      span {
+        display: none;
+      }
+
+      svg {
+
+      }
+    }
   }
 }

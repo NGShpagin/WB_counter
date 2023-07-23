@@ -3,4 +3,22 @@
     padding-left: calc(50% - $widthTable / 2);
     padding-right: calc(50% - $widthTable / 2);
   }
+
+  .buttons {
+    &__count {
+      width: 75%;
+    }
+
+    &__clear {
+      width: 20%;
+
+      span {
+        display: none;
+      }
+
+      svg {
+
+      }
+    }
+  }
 }
